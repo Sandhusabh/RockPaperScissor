@@ -29,7 +29,7 @@ function winnerAnnounce(computerScore, playerScore){
         displayFinalResults.textContent = `You are the Winner, Computer Lost!! Congratulations`
     }
     gameReset = false
-    displayReset.textContent = 'Please reset the Game to play another round!!'
+    displayReset.appendChild(para)
     displayReset.appendChild(resetButton)
 }
 
@@ -94,13 +94,17 @@ buttons.forEach(((button)=>{
     }
     else {
         console.log('Reset the game')
-        displayReset.textContent = 'Please reset the Game to play another round!!'
+        displayReset.appendChild(para)
         displayReset.appendChild(resetButton)
         return;
     }   
    });
 }));
 
+const para = document.createElement('p')
+para.textContent = 'Please reset the Game to play another round!!! '
+const br = document.createElement('br')
+para.appendChild(br)
 const resetButton = document.createElement('button')
 resetButton.textContent = 'Reset'
 resetButton.addEventListener('click', ()=>{
